@@ -1,0 +1,6 @@
+<a href="{{menuDetail.targetUrl}}">{{menuDetail.viewName}}</a>
+<ul ng-if="menuDetail.submenu">
+    <li ng-class="{'pushy-link': !menuDetail.submenu, 'pushy-submenu': menuDetail.submenu}" 
+        ng-repeat="menuDetail in menuDetail.submenu" class="pushy-link" ng-include="'views/menuTemplate.html'">
+    </li>
+</ul>
