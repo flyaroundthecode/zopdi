@@ -8,39 +8,94 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/pushy/css/pushy.css" />
+    <link rel='stylesheet' href='bower_components/pushy/css/pushy.css' />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,600,500,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,300italic,400italic' rel='stylesheet' type='text/css'>
   </head>
   <body ng-app="zetaApp">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div style="overflow-y: scroll">
-        <ul class="navigation">
-            <li class="nav-item"><a href="#">Home</a></li>
-            <li class="nav-item"><a href="#">Portfolio</a></li>
-            <li class="nav-item"><a href="#">About</a></li>
-            <li class="nav-item"><a href="#">Blog</a></li>
-            <li class="nav-item"><a href="#">Contact</a></li>
-        </ul>
-    </div>
-    
+    <div id="container">
 
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger"></label>
+        <div id="canvas">
 
-<div class="site-wrap">
-  <div class="container">
-    <!-- <div ng-view=""></div> -->
-    <div ui-view></div>
+            <div id="nav">
+                <h2 id="title"><i class="fa fa-sitemap"></i> MENU</h2>
+                <ul id="toggle">
+                    <li>
+                        <div class="active border">
+                            <span class="menu-icons fa fa-home"></span> <a href="#">HOME</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div>
+                            <span class="menu-icons  fa fa-user"></span> <a href="#">ABOUT US</a>
+                            <span class="the-btn fa fa-plus"></span>
+                        </div>
+
+                        <ul>
+                            <li>
+                                <a href="#">OUR TEAM</a>
+                            </li>
+
+                            <li>
+                                <a href="#">OUR SERVICES</a>
+                            </li>
+                        </ul>
+
+                    </li>
+
+                    <li>
+                        <div>
+                            <span class="menu-icons  fa fa-briefcase"></span>
+                            <a href="#">PORTFOLIO</a><span class="the-btn fa fa-plus"></span>
+                        </div>
+
+                        <ul>
+                            <li>
+                                <a href="#">WEB DESIGN</a>
+                            </li>
+
+                            <li>
+                                <a href="#">GRAPHIC DESIGN</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <div>
+                            <span class="menu-icons  fa fa-envelope"></span>
+                            <a href="#">CONTACT</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+
+            <a href="#" class="toggle-nav" id="bars"><i class="fa fa-bars"></i></a>
+
+
+            <h1>Off Canvas Sliding Navigation</h1>
+            <h3>Transition effect for off-canvas views with sliding navigation </h3>
+
+            <p> <a href="http://designmodo.com/canvas-sliding-navigation-menu/" class="back">&#8592; Back to the Article</a></p>
+
+            <div ui-view></div>
+        </div>
+
+        <div class="container">
+            
+        </div>
+
     </div>
-</div>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -59,6 +114,8 @@
     <script src="bower_components/pushy/js/pushy.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
+
+    <script src="scripts/custom/offcanvasSlider.js"></script>
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/configs/menuConfig.js"></script>
