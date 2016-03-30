@@ -21,6 +21,62 @@ zetaApp.value('navigationConfig', {
             {
                 'viewName': 'OUR SERVICES',
                 'targetUrl': '#'
+            },
+            {
+                'viewName': 'OUR TEAM',
+                'targetUrl': '#/about'
+            },
+            {
+                'viewName': 'OUR SERVICES',
+                'targetUrl': '#'
+            },
+            {
+                'viewName': 'OUR TEAM',
+                'targetUrl': '#/about'
+            },
+            {
+                'viewName': 'OUR SERVICES',
+                'targetUrl': '#'
+            },
+            {
+                'viewName': 'OUR TEAM',
+                'targetUrl': '#/about'
+            },
+            {
+                'viewName': 'OUR SERVICES',
+                'targetUrl': '#'
+            },
+            {
+                'viewName': 'OUR TEAM',
+                'targetUrl': '#/about'
+            },
+            {
+                'viewName': 'OUR SERVICES',
+                'targetUrl': '#'
+            },
+            {
+                'viewName': 'OUR TEAM',
+                'targetUrl': '#/about'
+            },
+            {
+                'viewName': 'OUR SERVICES',
+                'targetUrl': '#'
+            },
+            {
+                'viewName': 'OUR TEAM',
+                'targetUrl': '#/about'
+            },
+            {
+                'viewName': 'OUR SERVICES',
+                'targetUrl': '#'
+            },
+            {
+                'viewName': 'OUR TEAM',
+                'targetUrl': '#/about'
+            },
+            {
+                'viewName': 'OUR SERVICES',
+                'targetUrl': '#'
             }
         ]
     },

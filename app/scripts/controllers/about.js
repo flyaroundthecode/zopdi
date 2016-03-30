@@ -11,10 +11,10 @@ zetaApp.controller('aboutController', ['$scope',function ($scope){
 	$scope.expandText = function(){
 		$scope.textLimit = $scope.aboutUsText.length;
 		$scope.isTextExpanded = true;
-	}
+	};
 
 	$scope.shrinkText = function(){
 		$scope.textLimit = 200;
 		$scope.isTextExpanded = false;
-	}
+	};
 }]);
