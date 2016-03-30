@@ -8,7 +8,6 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel='stylesheet' href='bower_components/pushy/css/pushy.css' />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -22,71 +21,29 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div id="container">
-
+    <div id="container" ng-class="{'display-nav': isNavVisible}">
         <div id="canvas">
-
-            <div id="nav">
+            <div id="nav" ng-controller="navigationController">
                 <h2 id="title"><i class="fa fa-sitemap"></i> MENU</h2>
                 <ul id="toggle">
-                    <li>
-                        <div class="active border">
-                            <span class="menu-icons fa fa-home"></span> <a href="#">HOME</a>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div>
-                            <span class="menu-icons  fa fa-user"></span> <a href="#">ABOUT US</a>
-                            <span class="the-btn fa fa-plus"></span>
-                        </div>
-
-                        <ul>
-                            <li>
-                                <a href="#">OUR TEAM</a>
-                            </li>
-
-                            <li>
-                                <a href="#">OUR SERVICES</a>
-                            </li>
-                        </ul>
-
-                    </li>
-
-                    <li>
-                        <div>
-                            <span class="menu-icons  fa fa-briefcase"></span>
-                            <a href="#">PORTFOLIO</a><span class="the-btn fa fa-plus"></span>
-                        </div>
-
-                        <ul>
-                            <li>
-                                <a href="#">WEB DESIGN</a>
-                            </li>
-
-                            <li>
-                                <a href="#">GRAPHIC DESIGN</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <div>
-                            <span class="menu-icons  fa fa-envelope"></span>
-                            <a href="#">CONTACT</a>
+                    <li ng-repeat="(navItem, navDetail) in navigationConfig" ng-click="navSelectionHandler(navItem, navDetail)">
+                        <div ng-class="{'active border': navItem == selectedNavItem}">
+                            <span class="{{navDetail.iconClass}}"></span> <a ng-href="{{navDetail.targetUrl}}">{{navDetail.viewName}}</a>
+                            <span class="the-btn" ng-class="{'fa fa-plus': !navDetail.isSubNavVisible, 'fa fa-minus': navDetail.isSubNavVisible}" ng-if="navDetail.subNav"></span>
+                            <ul ng-show="navDetail.isSubNavVisible" ng-if="navDetail.subNav" ng-animate="'animate'" class="slider">
+                                <li ng-repeat="subNavDetail in navDetail.subNav">
+                                    <a ng-href="{{subNavDetail.targetUrl}}">{{subNavDetail.viewName}}</a>
+                                </li>
+                            </ul>
                         </div>
                     </li>
                 </ul>
             </div>
 
-
-            <a href="#" class="toggle-nav" id="bars"><i class="fa fa-bars"></i></a>
-
-
-            <h1>Off Canvas Sliding Navigation</h1>
-            <h3>Transition effect for off-canvas views with sliding navigation </h3>
-
-            <p> <a href="http://designmodo.com/canvas-sliding-navigation-menu/" class="back">&#8592; Back to the Article</a></p>
+            <div class="nav-header" ng-controller="headerController">
+                <a class="toggle-nav" id="bars" ng-click="toggleNavigation()"><i class="fa fa-bars"></i></a>
+                <div ncy-breadcrumb></div>
+            </div>
 
             <div ui-view></div>
         </div>
@@ -111,15 +68,17 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-breadcrumb/release/angular-breadcrumb.js"></script>
-    <script src="bower_components/pushy/js/pushy.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-    <script src="scripts/custom/offcanvasSlider.js"></script>
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/custom/offcanvasSlider.js"></script>
         <script src="scripts/app.js"></script>
-        <script src="scripts/configs/menuConfig.js"></script>
-        <script src="scripts/controllers/menuController.js"></script>
+        <script src="scripts/configs/navigationConfig.js"></script>
+        <script src="scripts/directives/zetaNavBar.js"></script>
+        <script src="scripts/controllers/navigationController.js"></script>
+        <script src="scripts/controllers/headerController.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <!-- endbuild -->

@@ -1,1 +1,15 @@
-<p>This is the about view. Hardik</p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<h1>Our Team</h1>
+			<p class="inline-paragraph">
+				<h3 class="inline-paragraph">{{aboutUsText|limitTo:textLimit}}</h3>
+				<span class="read-more" ng-click="expandText()" ng-hide="isTextExpanded">Read more&gt;&gt;</span>
+				<span class="read-more" ng-click="shrinkText()" ng-show="isTextExpanded">&lt;&lt;Read less</span>
+			</p>
+		</div>
+		<div class="col-md-12">
+			<p> <a href="#/" class="back">&#8592; Back to Home</a></p>
+		</div>
+	</div>
+</div>
