@@ -40,12 +40,19 @@
                     </li>
                 </ul>
             </div>
-            <div id="canvas">
-                <div class="nav-header" ng-controller="headerController">
-                    <a class="toggle-nav" id="bars" ng-click="toggleNavigation()"><i class="fa fa-bars"></i></a>
-                    <div ncy-breadcrumb></div>
-                </div>
 
+            <nav id="zeta-nav-header"class="navbar navbar-default navbar-fixed-top" ng-controller="headerController">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a class="toggle-nav" id="bars" ng-click="toggleNavigation()"><i class="fa fa-bars"></i></a>
+                        <div class="breadcrumb-area">
+                            <div ncy-breadcrumb></div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div id="canvas">
                 <div ui-view></div>
             </div>
         </div>

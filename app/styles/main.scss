@@ -7,13 +7,21 @@
 @import "reset.scss";
 @import "offcanvas.scss";
 
-.nav-header {
+#zeta-nav-header {
+	transition: .5s ease all;
+
 	&:focus {
 		outline: none;
 	}
 
-	.breadcrumb {
-		background: $zeta-global-background;
+	.breadcrumb-area {
+
+		margin-top: 2%;
+
+		.breadcrumb {
+			display: inline;
+			background: $zeta-global-background;
+		}
 	}
 }
 

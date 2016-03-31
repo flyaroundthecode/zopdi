@@ -7,7 +7,7 @@ zetaApp.controller('headerController', ['$scope', '$rootScope', function ($scope
     $rootScope.isNavVisible = false;
 
     $scope.toggleNavigation = function(){
-    	$rootScope.isNavVisible = $scope.isNavVisible ? false : true;
+    	$rootScope.isNavVisible = !$scope.isNavVisible;
     };
     
 }]);
