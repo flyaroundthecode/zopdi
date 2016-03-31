@@ -2,18 +2,24 @@
 
 var zetaApp = angular.module('zetaApp');
 
-zetaApp.controller('navigationController', ['$scope', 'navigationConfig', 
-  function ($scope, navigationConfig) {
+zetaApp.controller('navigationController', ['$scope', 'navigationConfig', '$rootScope',
+  function ($scope, navigationConfig, $rootScope) {
     
     $scope.navigationConfig = navigationConfig;
 
-    $scope.isNavVisible = false;
-
-    $scope.navSelectionHandler = function(navItem, navDetails){
+    $scope.navSelectionHandler = function(navItem, navDetails) {
       $scope.selectedNavItem = navItem;
-      if(angular.isDefined(navDetails.isSubNavVisible)){
-        navDetails.isSubNavVisible = navDetails.isSubNavVisible ? false : true;
+      if(angular.isUndefined(navDetails.subNav)) {
+      	$rootScope.isNavVisible = !$scope.isNavVisible;
       }
+      if(angular.isDefined(navDetails.isSubNavVisible)) {
+        navDetails.isSubNavVisible = !navDetails.isSubNavVisible;
+      }
+    };
+
+    $scope.subNavSelectionHandler = function($event) {
+    	$event.stopPropagation();
+    	$rootScope.isNavVisible = !$scope.isNavVisible;
     };
     
 }]);
