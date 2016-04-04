@@ -1,0 +1,13 @@
+@import "variables.scss";
+
+@mixin zeta-header-font {
+	color: $zeta-header-font-color;
+	font-family: 'Raleway', Arial, sans-serif;
+	margin: 0.5vh 0.5vw;
+}
+
+@mixin zeta-normal-font {
+	color: $zeta-normal-font-color;
+	font-family: 'Lato', Arial, sans-serif;
+	margin: 0.5vh 0.5vw;
+}

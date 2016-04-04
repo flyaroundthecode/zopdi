@@ -4,29 +4,39 @@
 @import "font-awesome/scss/font-awesome.scss";
 // endbower
 
-@import "reset.scss";
+//@import "reset.scss";
+@import "mixin.scss";
 @import "offcanvas.scss";
+@import "login.scss";
+
 
 #zeta-nav-header {
 	transition: .5s ease all;
 
-	&:focus {
-		outline: none;
+	#bars {
+	  font-size: 2.5em;
+	  margin: 1% 1% 1% 5%;
+	  color: $zeta-header-font-color;
+	  float:left;
+	  &:hover {
+	    color: $zeta-header-font-hover-color;
+	    cursor: pointer;
+	  }
 	}
 
 	.breadcrumb-area {
-
 		margin-top: 2%;
 
 		.breadcrumb {
-			display: inline;
 			background: $zeta-global-background;
+			display: inline;
 		}
 	}
 }
 
 .read-more {
-    color: $zeta-main-font-color;
+    color: $zeta-header-font-color;
+
     &:hover {
     	cursor: pointer;
     }

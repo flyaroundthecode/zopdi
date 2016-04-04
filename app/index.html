@@ -28,7 +28,7 @@
                 <h2 id="title"><i class="fa fa-sitemap"></i>MENU</h2>
                 <ul id="toggle">
                     <li ng-repeat="(navItem, navDetail) in navigationConfig" ng-click="navSelectionHandler(navItem, navDetail)">
-                        <div ng-class="{'active border': navItem == selectedNavItem}">
+                        <div ng-class="{'active border': navItem == selectedNavItem}" class="nav-menu-item-container">
                             <span class="{{navDetail.iconClass}}"></span> <a ng-href="{{navDetail.targetUrl}}">{{navDetail.viewName}}</a>
                             <span class="the-btn" ng-class="{'fa fa-plus': !navDetail.isSubNavVisible, 'fa fa-minus': navDetail.isSubNavVisible}" ng-if="navDetail.subNav"></span>
                             <ul ng-show="navDetail.isSubNavVisible" ng-if="navDetail.subNav" ng-animate="'animate'" class="slider" ng-click="subNavSelectionHandler($event)">
@@ -78,10 +78,14 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/custom/offcanvasSlider.js"></script>
         <script src="scripts/app.js"></script>
+        <script src="scripts/factories/DataService.js"></script>
+        <script src="scripts/services/userService.js"></script>
+        <script src="scripts/services/authenticationService.js"></script>
         <script src="scripts/configs/navigationConfig.js"></script>
         <script src="scripts/directives/zetaNavBar.js"></script>
         <script src="scripts/controllers/navigationController.js"></script>
         <script src="scripts/controllers/headerController.js"></script>
+        <script src="scripts/controllers/loginController.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <!-- endbuild -->

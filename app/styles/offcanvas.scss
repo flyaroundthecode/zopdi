@@ -1,27 +1,9 @@
 
 @import "variables.scss";
-html, body {
-  background: $zeta-global-background;
-}
-h1 {
-  text-align: center;
-  font-family: 'Raleway', Arial, sans-serif;
-  font-weight: 700;
-  font-size: 45px;
-  margin-top: 15px;
-  color: $zeta-main-font-color;
-}
-h2 {
-  text-align: center;
-}
-h3 {
-  text-align: center;
-  font-family: 'Raleway', Arial, sans-serif;
-  font-weight: 400;
-  font-size: 25px;
-  margin-top: 15px;
-  color: #918e84;
-}
+@import "mixin.scss";
+@import "general.scss";
+
+
 #container {
   width: $zeta-container-width;
   height: 100%;
@@ -40,7 +22,7 @@ h3 {
 #nav {
   width: $zeta-menu-width;
   height: 100%;
-  background: $zeta-main-font-color;
+  background: $zeta-header-font-color;
   position: fixed;
   //left: -300px;
   top: 0;
@@ -48,6 +30,83 @@ h3 {
   transform: rotateY(-90deg);
   overflow: auto;
   z-index: 1000;
+
+  #title {
+    margin: 0;
+    padding: 1em;
+    color: rgba(0,0,0,0.4);
+    text-shadow: 0 0 1px rgba(0,0,0,0.1);
+    font-weight: 300;
+    font-size: 2em;
+    font-family: 'Raleway', Arial;
+  }
+
+  #toggle {
+    list-style: none;
+    margin-top: 40px;
+    padding-left: 0;
+    
+    ul {
+      list-style: disc;
+      padding-left: 0;
+      //display: none;
+      color: #fff;
+      background: rgba(0,0,0,0.2);
+      box-shadow: inset 0 -1px rgba(0,0,0,0);
+      li {
+        margin-left: 75px;
+        &:focus {
+          outline: none;
+        }
+        a {
+          &:hover {
+            background: #1f9d55;
+          }
+          margin-left: 0;
+        }
+      }
+    }
+    li {
+      a {
+        line-height: 41px;
+        color: #fff;
+        list-style: circle;
+        width: 240px;
+        padding: 0;
+        margin: 0 0 0 25px;
+      }
+    }
+    a {
+      margin: 0 0 0 47px;
+      padding: 0;
+      font-family: 'Lato';
+      color: #fff;
+      line-height: 41px;
+      font-weight: normal;
+      font-size: 18px;
+      text-decoration: none;
+    }
+
+    div {
+      &:hover {
+        background: rgba(0,0,0,0.2);
+        box-shadow: inset 0 -1px rgba(0,0,0,0);
+        color: #fff;
+      }
+      &:focus{
+        outline: none;
+      }
+      cursor: pointer;
+      display: block;
+      border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+    div.active {
+      background: #1f9d55;
+    }
+  }
+  .border {
+    border-top: 1px solid rgba(0,0,0,0.2);
+  }
 }
 #container.display-nav {
   #canvas {
@@ -64,30 +123,8 @@ h3 {
     transform: rotateY(0deg);
   }
 }
-#bars {
-  font-size: 2.5em;
-  margin: 1% 1% 1% 5%;
-  color: $zeta-main-font-color;
-  float:left;
-  &:hover {
-    color: $zeta-main-font-hover-color;
-    cursor: pointer;
-  }
-}
-#title {
-  margin: 0;
-  padding: 1em;
-  color: rgba(0,0,0,0.4);
-  text-shadow: 0 0 1px rgba(0,0,0,0.1);
-  font-weight: 300;
-  font-size: 2em;
-  font-family: 'Raleway', Arial;
-}
-.border {
-  border-top: 1px solid rgba(0,0,0,0.2);
-}
 a.back {
-  color: $zeta-main-font-color;
+  color: $zeta-header-font-color;
   width: 200px;
   text-decoration: none;
   text-align: center;
@@ -96,11 +133,11 @@ a.back {
   font-weight: 600;
   display: block;
   margin: 50px auto 0 auto;
-  border: 2px solid $zeta-main-font-color;
+  border: 2px solid $zeta-header-font-color;
   padding: 10px;
   &:hover {
-    color: $zeta-main-font-hover-color;
-    border: 2px solid $zeta-main-font-hover-color;
+    color: $zeta-header-font-hover-color;
+    border: 2px solid $zeta-header-font-hover-color;
   }
 }
 .clear {
@@ -109,65 +146,13 @@ a.back {
   overflow: hidden;
   visibility: hidden;
 }
-#toggle {
-  list-style: none;
-  margin-top: 40px;
-  div {
-    &:hover {
-      background: rgba(0,0,0,0.2);
-      box-shadow: inset 0 -1px rgba(0,0,0,0);
-      color: #fff;
-    }
-    cursor: pointer;
-    display: block;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
-  }
-  div.active {
-    background: #1f9d55;
-  }
-  ul {
-    list-style: disc;
-    //display: none;
-    color: #fff;
-    background: rgba(0,0,0,0.2);
-    box-shadow: inset 0 -1px rgba(0,0,0,0);
-    li {
-      margin-left: 109px;
-      a {
-        &:hover {
-          background: #1f9d55;
-        }
-        margin-left: 0;
-      }
-    }
-  }
-  li {
-    a {
-      line-height: 41px;
-      color: #fff;
-      list-style: circle;
-      width: 240px;
-      padding: 0;
-      margin: 0 0 0 50px;
-    }
-  }
-  a {
-    margin: 0 0 0 47px;
-    padding: 0;
-    font-family: 'Lato';
-    color: #fff;
-    line-height: 41px;
-    font-weight: normal;
-    font-size: 18px;
-    text-decoration: none;
-  }
-}
+
 span.menu-icons {
   font-size: 20px;
   height: 20px;
   width: 22px;
   float: left;
-  margin: 11px 0px 10px 37px;
+  margin: 10px 0px 10px 25px;
   color: #fff;
 }
 span.the-btn {

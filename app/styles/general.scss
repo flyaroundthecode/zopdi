@@ -1,0 +1,35 @@
+@import "variables.scss";
+@import "mixin.scss";
+
+html, body {
+  background: $zeta-global-background;
+}
+
+h1 {
+  @include zeta-header-font;
+  font-size: 300%;
+}
+h2 {
+  @include zeta-header-font;
+  font-size: 250%;
+}
+h3 {
+  @include zeta-header-font;
+  font-size: 225%;
+}
+h4 {
+  @include zeta-header-font;
+  font-size: 200%;
+}
+h5 {
+  @include zeta-header-font;
+  font-size: 175%;
+}
+h6 {
+  @include zeta-header-font;
+  font-size: 150%;
+}
+
+.zeta-normal-text {
+  @include zeta-normal-font;
+}

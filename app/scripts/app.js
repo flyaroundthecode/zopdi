@@ -24,8 +24,13 @@ angular
   .config(function ($stateProvider, $urlRouterProvider) {
 	  $urlRouterProvider.otherwise('/');
 	  $stateProvider
+      .state('login', {
+        url: '/',
+        templateUrl: 'views/login.html',
+        controller: 'loginController'
+      })
 	  	.state('home', {
-	  		url: '/',
+	  		url: '/home',
 	  		templateUrl: 'views/main.html',
 	  		controller: 'MainCtrl',
 	  		ncyBreadcrumb: {
